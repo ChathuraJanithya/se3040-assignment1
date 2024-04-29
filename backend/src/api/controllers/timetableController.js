@@ -208,14 +208,14 @@ const notifyStudents = async (courseId) => {
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "it21263880@my.sliit.lk", // Your email address
-        pass: "200109004280", // Your email password
+        user: "", // Your email address
+        pass: "", // Your email password
       },
     });
 
     // Send reminder email
     let info = await transporter.sendMail({
-      from: "it21263880@my.sliit.lk", // Sender address
+      from: "", // Sender address
       to: studentEmails, // Scheduled email address
       subject: "Timetable update reminder", // Subject line
       text: `Your timetable has been changed`, // Plain text body
