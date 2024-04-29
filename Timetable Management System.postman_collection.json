@@ -1,0 +1,1341 @@
+{
+	"info": {
+		"_postman_id": "196eff49-3f59-41a5-9089-4a64fe602210",
+		"name": "Timetable Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23490725"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 no user found\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 Created\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NWFmODQ4OWJjZDA0YzdkZDI4ZCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxMzAyMiwiZXhwIjoxNzExMjk5NDIyfQ.kUnlwX3SFadS-6wYgRwLmJtMRvRbjLoxj45oPM62bMY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"adminChathura\", \n    \"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/user/login",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST User | Signup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 user already exist\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 Created\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NWFmODQ4OWJjZDA0YzdkZDI4ZCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxMzAyMiwiZXhwIjoxNzExMjk5NDIyfQ.kUnlwX3SFadS-6wYgRwLmJtMRvRbjLoxj45oPM62bMY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"ravindu\",\n    \"lastName\": \"thennakoon\",\n    \"contact\": \"0712150345\",\n    \"email\": \"nuwan\",\n    \"password\": \"ravi123\",\n    \"role\": \"65f860f228092054534bb642\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/user/signup",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "get Course By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 no course found\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200 Course Found\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTExMzE4NTUsImV4cCI6MTcxMTIxODI1NX0.w9ZkQZV8ukiuIHxdMpqXbFEsLAv9k5zz86YgQyg9jPs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/course/65f880b3b7dcf0f6e17bc39c",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"course",
+								"65f880b3b7dcf0f6e17bc39c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 no course already exists\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 Created\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTEyNTk2NTMsImV4cCI6MTcxMTM0NjA1M30.ggdm7Zh-urRPLB7WxmJyq3uep5OHP8N9xCVQcev9DgE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTA3ODQwMTMsImV4cCI6MTcxMDg3MDQxM30.UDUzQHG67w3adkn5l1FKAouBbMqIfpUkE63as4JzQ5Y\"",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"courseName\" : \"fbdfbd\",\n    \"courseCode\" : \"fdbdf\",\n    \"courseCredit\" : 4,\n    \"faculty\" : \"65f86bd57fd8a39fca6f0bb9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 500 - Something went wrong\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200 All courses fetched\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTExMzI3NDMsImV4cCI6MTcxMTIxOTE0M30.wIOu_WEdFdzmvWAib1ZMNONY7z6quDp8w_30tRSkYK4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/course",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update course ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 no course found\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200 Updated\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTEyNTk2NTMsImV4cCI6MTcxMTM0NjA1M30.ggdm7Zh-urRPLB7WxmJyq3uep5OHP8N9xCVQcev9DgE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"courseName\" : \"fbdfbd\",\n    \"courseCode\" : \"fdbdf\",\n    \"courseCredit\" : 100,\n    \"faculty\" : \"65f86bd57fd8a39fca6f0bb9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/course/65ffc103d61437740bc2c9c4",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"course",
+								"65ffc103d61437740bc2c9c4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 no course found\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200 course Deleted successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTEyNTk2NTMsImV4cCI6MTcxMTM0NjA1M30.ggdm7Zh-urRPLB7WxmJyq3uep5OHP8N9xCVQcev9DgE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/course/65ffc103d61437740bc2c9c4",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"course",
+								"65ffc103d61437740bc2c9c4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student enroll",
+			"item": [
+				{
+					"name": "enroll student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 no course already exists\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code is 400 Already enrolled\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 Created student and the enrolledcourses\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test(\"Status code is 200 enrolled to new course\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NWFmODQ4OWJjZDA0YzdkZDI4ZCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxNTE0NiwiZXhwIjoxNzExMzAxNTQ2fQ.ezd8JupN3MmMRaGgxLD92o17ELfhHeq4JHzpvxVsTlo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentID\" : \"65fc55af8489bcd04c7dd28d\"\n, \"enrolledCourse\": [\"65ffc051d61437740bc2c9af\"]\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/enroll",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"enroll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Enrolled Courses timetable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 no no sessions found\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test(\"Status code is 500 something went wrong\", function () {",
+									"    pm.response.to.have.status(500);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Status code is 200 timetable\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NWFmODQ4OWJjZDA0YzdkZDI4ZCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxNTE0NiwiZXhwIjoxNzExMzAxNTQ2fQ.ezd8JupN3MmMRaGgxLD92o17ELfhHeq4JHzpvxVsTlo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/enroll/timetable",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"enroll",
+								"timetable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter enrollments for each student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>ID</th>",
+									"        <th>Course Name</th>",
+									"        <th>Course Code</th>",
+									"        <th>Course Credit</th>",
+									"        <th>Faculty</th>",
+									"        <th>Created At</th>",
+									"        <th>Updated At</th>",
+									"        <th>__v</th>",
+									"    </tr>",
+									"    ",
+									"    {{#each response}}",
+									"        <tr>",
+									"            <td>{{_id}}</td>",
+									"            <td>{{courseName}}</td>",
+									"            <td>{{courseCode}}</td>",
+									"            <td>{{courseCredit}}</td>",
+									"            <td>{{faculty}}</td>",
+									"            <td>{{createdAt}}</td>",
+									"            <td>{{updatedAt}}</td>",
+									"            <td>{{__v}}</td>",
+									"        </tr>",
+									"    {{/each}}",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return { response: pm.response.json() }",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NWFmODQ4OWJjZDA0YzdkZDI4ZCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxNTE0NiwiZXhwIjoxNzExMzAxNTQ2fQ.ezd8JupN3MmMRaGgxLD92o17ELfhHeq4JHzpvxVsTlo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/enroll",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"enroll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get timetableBy course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response content type is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Day</th>",
+									"        <th>Class Sessions</th>",
+									"        <th>Created At</th>",
+									"        <th>Updated At</th>",
+									"    </tr>",
+									"    ",
+									"    {{#each response}}",
+									"        <tr>",
+									"            <td>{{day}}</td>",
+									"            <td>",
+									"                <ul>",
+									"                    {{#each classSessions}}",
+									"                        <li>{{sessionName}} - {{course}} - {{faculty}} - {{startTime}} to {{endTime}} - {{location}}</li>",
+									"                    {{/each}}",
+									"                </ul>",
+									"            </td>",
+									"            <td>{{createdAt}}</td>",
+									"            <td>{{updatedAt}}</td>",
+									"        </tr>",
+									"    {{/each}}",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return {response: pm.response.json()}",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NWFmODQ4OWJjZDA0YzdkZDI4ZCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxNTE0NiwiZXhwIjoxNzExMzAxNTQ2fQ.ezd8JupN3MmMRaGgxLD92o17ELfhHeq4JHzpvxVsTlo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/timetable/65f8809cb7dcf0f6e17bc397",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"timetable",
+								"65f8809cb7dcf0f6e17bc397"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "65f8802af9eff59398d51b7d",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking resource",
+			"item": [
+				{
+					"name": "add resource",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 no resource already exists\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 Created\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NDYyODQ4OWJjZDA0YzdkZDI4NSIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxNTg5OCwiZXhwIjoxNzExMzAyMjk4fQ.-wKLQQ3BZtmhQWWXvZYSEAGYj7h07EaMQtdSvdaE-7s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"resourceName\" : \"lab13068899\" ,\n     \"resourceType\" : \"lab\", \n     \"quantity\" : 1\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/resource",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"resource"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Room",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 no room already exists\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 Created\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NDYyODQ4OWJjZDA0YzdkZDI4NSIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxNTg5OCwiZXhwIjoxNzExMzAyMjk4fQ.-wKLQQ3BZtmhQWWXvZYSEAGYj7h07EaMQtdSvdaE-7s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"roomName\" : \"E604468\", \n     \"capacity\" : \"125\",\n     \"location\" : \"EN building\" \n     }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/room",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401 booking overlaps\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 booking Created\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NDYyODQ4OWJjZDA0YzdkZDI4NSIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxNTg5OCwiZXhwIjoxNzExMzAyMjk4fQ.-wKLQQ3BZtmhQWWXvZYSEAGYj7h07EaMQtdSvdaE-7s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"resouceID\": \"65fc0fd061f3dbd9860bff24\", \n  \"reservedDate\": \"saturday\",\n  \"startTime\": \"2024-06-20T11:30:00.000Z\",\n  \"endTime\": \"2024-06-20T12:30:00.000Z\",\n  \"status\" : \"booked\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/booking",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role-auth",
+			"item": [
+				{
+					"name": "POST Role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 role already exists\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 Created\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NDYyODQ4OWJjZDA0YzdkZDI4NSIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxNTg5OCwiZXhwIjoxNzExMzAyMjk4fQ.-wKLQQ3BZtmhQWWXvZYSEAGYj7h07EaMQtdSvdaE-7s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"roleName\" : \"passenger\",\n    \"roleDescription\" : \"passenger\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Faculty",
+			"item": [
+				{
+					"name": "Add Faculty",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 Faculty already exists\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 Created\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1NDYyODQ4OWJjZDA0YzdkZDI4NSIsInJvbGUiOnsiX2lkIjoiNjVmODYwZjIyODA5MjA1NDUzNGJiNjQyIiwicm9sZU5hbWUiOiJzdHVkZW50In0sImlhdCI6MTcxMTIxNTg5OCwiZXhwIjoxNzExMzAyMjk4fQ.-wKLQQ3BZtmhQWWXvZYSEAGYj7h07EaMQtdSvdaE-7s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"facultyName\" : \"Engineering Faculty\",\n    \"facultyCode\" : \"EN014\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/faculty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"faculty"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Timetable",
+			"item": [
+				{
+					"name": "Create Timetable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 no course already exists\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 Created\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTEyNjAzODAsImV4cCI6MTcxMTM0Njc4MH0.FjDxkm-XwQipTjbChHps4Sr362c6UnG6uOElgkgkNvI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"day\" : \"tuesday\",\n    \"classSession\" : [\"65ffc2f450d45d5a6eba847d\"]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/timetable",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"timetable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch timetable for course and day",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 no Sessions found for this date \", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200 Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTEyNjAzODAsImV4cCI6MTcxMTM0Njc4MH0.FjDxkm-XwQipTjbChHps4Sr362c6UnG6uOElgkgkNvI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/timetable?courseID=65ffc051d61437740bc2c9af&day=saturday",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"timetable"
+							],
+							"query": [
+								{
+									"key": "courseID",
+									"value": "65ffc051d61437740bc2c9af"
+								},
+								{
+									"key": "day",
+									"value": "saturday"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get timetable by courseID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTEyNjAzODAsImV4cCI6MTcxMTM0Njc4MH0.FjDxkm-XwQipTjbChHps4Sr362c6UnG6uOElgkgkNvI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/timetable/65ffc051d61437740bc2c9af",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"timetable",
+								"65ffc051d61437740bc2c9af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Timetable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 no Sessions found for this date \", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200 Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTEyNjAzODAsImV4cCI6MTcxMTM0Njc4MH0.FjDxkm-XwQipTjbChHps4Sr362c6UnG6uOElgkgkNvI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"sessionName\" : \"AF-Laboratory\",\n     \"course\" : \"65ffc051d61437740bc2c9af\",\n      \"faculty\" : \"65f86bc17fd8a39fca6f0bb6\",\n  \n  \"startTime\": \"2024-06-20T05:00:00.000Z\",\n  \"endTime\": \"2024-06-20T08:00:00.000Z\",\n\n         \"location\" : \"EN502\"\n         } ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/timetable/65ffc051d61437740bc2c9af",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"timetable",
+								"65ffc051d61437740bc2c9af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Timetable",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTEyNTk2NTMsImV4cCI6MTcxMTM0NjA1M30.ggdm7Zh-urRPLB7WxmJyq3uep5OHP8N9xCVQcev9DgE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/timetable/",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"timetable",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Session",
+			"item": [
+				{
+					"name": "Create Session",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Status code is 403 Unautherized\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201 Created\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTEyNjAzODAsImV4cCI6MTcxMTM0Njc4MH0.FjDxkm-XwQipTjbChHps4Sr362c6UnG6uOElgkgkNvI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"sessionName\" : \"AF-Lab\",\n     \"course\" : \"65ffc051d61437740bc2c9af\",\n      \"faculty\" : \"65f86bc17fd8a39fca6f0bb6\",\n  \n  \"startTime\": \"2024-06-20T05:00:00.000Z\",\n  \"endTime\": \"2024-06-20T08:00:00.000Z\",\n\n         \"location\" : \"EN502\"\n         } ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/session",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"session"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASEURL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

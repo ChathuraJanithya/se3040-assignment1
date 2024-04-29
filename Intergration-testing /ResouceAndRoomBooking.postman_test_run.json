@@ -1,0 +1,151 @@
+{
+	"id": "4fd51a0e-730d-4ef5-a87c-0c5ab0e95721",
+	"name": "Timetable Management System",
+	"timestamp": "2024-03-23T17:52:12.916Z",
+	"collection_id": "23490725-196eff49-3f59-41a5-9089-4a64fe602210",
+	"folder_id": "23490725-7708a329-a71f-4bfa-bf17-70c4057060e2",
+	"environment_id": "0",
+	"totalPass": 3,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-03-23T17:52:10.993Z",
+	"totalFail": 6,
+	"results": [
+		{
+			"id": "f61e9f31-c6a5-4649-aff4-baf813ef4e6b",
+			"name": "add resource",
+			"url": "http://localhost:8080/resource",
+			"time": 559,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 400 no resource already exists": false,
+				"Status code is 403 Unautherized": false,
+				"Status code is 201 Created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400 no resource already exists": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 403 Unautherized": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 201 Created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				559
+			],
+			"allTests": [
+				{
+					"Status code is 400 no resource already exists": false,
+					"Status code is 403 Unautherized": false,
+					"Status code is 201 Created": true
+				}
+			]
+		},
+		{
+			"id": "8a095526-14eb-4e9e-bd49-936e0542d6df",
+			"name": "Create Room",
+			"url": "http://localhost:8080/room",
+			"time": 552,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 400 no room already exists": false,
+				"Status code is 403 Unautherized": false,
+				"Status code is 201 Created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400 no room already exists": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 403 Unautherized": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 201 Created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				552
+			],
+			"allTests": [
+				{
+					"Status code is 400 no room already exists": false,
+					"Status code is 403 Unautherized": false,
+					"Status code is 201 Created": true
+				}
+			]
+		},
+		{
+			"id": "c00c79e2-c4b8-4f0c-9bd3-1f6060c4ba54",
+			"name": "Create Booking",
+			"url": "http://localhost:8080/booking",
+			"time": 545,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 401 booking overlaps": false,
+				"Status code is 403 Unautherized": false,
+				"Status code is 201 booking Created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401 booking overlaps": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 403 Unautherized": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 201 booking Created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				545
+			],
+			"allTests": [
+				{
+					"Status code is 401 booking overlaps": false,
+					"Status code is 403 Unautherized": false,
+					"Status code is 201 booking Created": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1656,
+	"collection": {
+		"requests": [
+			{
+				"id": "f61e9f31-c6a5-4649-aff4-baf813ef4e6b",
+				"method": "POST"
+			},
+			{
+				"id": "8a095526-14eb-4e9e-bd49-936e0542d6df",
+				"method": "POST"
+			},
+			{
+				"id": "c00c79e2-c4b8-4f0c-9bd3-1f6060c4ba54",
+				"method": "POST"
+			}
+		]
+	}
+}

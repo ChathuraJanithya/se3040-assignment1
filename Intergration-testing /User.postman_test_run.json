@@ -1,0 +1,96 @@
+{
+	"id": "f9fb73df-e74d-43bd-8e8d-e1e66446036a",
+	"name": "Timetable Management System",
+	"timestamp": "2024-03-23T17:09:01.083Z",
+	"collection_id": "23490725-196eff49-3f59-41a5-9089-4a64fe602210",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 2,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-03-23T17:08:59.899Z",
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "24dfbe51-5947-4cf0-a6f2-40c6e5554ee7",
+			"name": "POST User | Signup",
+			"url": "http://localhost:8080/user/signup",
+			"time": 276,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400 user already exist": true,
+				"Status code is 201 Created": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400 user already exist": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 201 Created": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				276
+			],
+			"allTests": [
+				{
+					"Status code is 400 user already exist": true,
+					"Status code is 201 Created": false
+				}
+			]
+		},
+		{
+			"id": "f8f07dcf-42a9-41cb-805c-9a4497d8427a",
+			"name": "Login User",
+			"url": "http://localhost:8080/user/login",
+			"time": 671,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 400 no user found": false,
+				"Status code is 201 Created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400 no user found": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 201 Created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				671
+			],
+			"allTests": [
+				{
+					"Status code is 400 no user found": false,
+					"Status code is 201 Created": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 947,
+	"collection": {
+		"requests": [
+			{
+				"id": "24dfbe51-5947-4cf0-a6f2-40c6e5554ee7",
+				"method": "POST"
+			},
+			{
+				"id": "f8f07dcf-42a9-41cb-805c-9a4497d8427a",
+				"method": "POST"
+			}
+		]
+	}
+}

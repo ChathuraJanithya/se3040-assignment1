@@ -1,0 +1,18 @@
+config:
+  target: "http://localhost:8080"
+  phases:
+    - duration: 20
+      arrivalRate: 5
+      name: "Fetching Courses"
+
+scenarios:
+  - flow:
+      - get:
+          url: "/course"
+
+processor:
+  mock:
+    setAuthHeader:
+      RequestAddCookie:
+        headers:
+          Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Zjg2MjU5NzQ2YzEzZGRlZjBhN2I5OCIsInJvbGUiOnsiX2lkIjoiNjVmODYwZDIyODA5MjA1NDUzNGJiNjNjIiwicm9sZU5hbWUiOiJhZG1pbiJ9LCJpYXQiOjE3MTEyNTk2NTMsImV4cCI6MTcxMTM0NjA1M30.ggdm7Zh-urRPLB7WxmJyq3uep5OHP8N9xCVQcev9DgE"

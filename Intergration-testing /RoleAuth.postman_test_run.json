@@ -1,0 +1,65 @@
+{
+	"id": "245fc3dc-925b-4bf9-80c4-560d3bc27a8a",
+	"name": "Timetable Management System",
+	"timestamp": "2024-03-23T17:58:24.608Z",
+	"collection_id": "23490725-196eff49-3f59-41a5-9089-4a64fe602210",
+	"folder_id": "23490725-36fa92f4-1084-4f94-bf9a-e553488a77d7",
+	"environment_id": "0",
+	"totalPass": 1,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-03-23T17:58:23.879Z",
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "21d13112-035c-4f6a-b7c6-9d7a638d59b5",
+			"name": "POST Role",
+			"url": "http://localhost:8080/role",
+			"time": 552,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 400 role already exists": false,
+				"Status code is 403 Unautherized": false,
+				"Status code is 201 Created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400 role already exists": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 403 Unautherized": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 201 Created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				552
+			],
+			"allTests": [
+				{
+					"Status code is 400 role already exists": false,
+					"Status code is 403 Unautherized": false,
+					"Status code is 201 Created": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 552,
+	"collection": {
+		"requests": [
+			{
+				"id": "21d13112-035c-4f6a-b7c6-9d7a638d59b5",
+				"method": "POST"
+			}
+		]
+	}
+}

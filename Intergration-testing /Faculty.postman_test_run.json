@@ -1,0 +1,65 @@
+{
+	"id": "74c6934d-08ad-4666-a58d-66b88a629aac",
+	"name": "Timetable Management System",
+	"timestamp": "2024-03-23T18:00:05.789Z",
+	"collection_id": "23490725-196eff49-3f59-41a5-9089-4a64fe602210",
+	"folder_id": "23490725-7509a0b1-cdfb-4b20-a556-b108f01f30af",
+	"environment_id": "0",
+	"totalPass": 1,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-03-23T18:00:05.040Z",
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "9c0f5793-3d64-4122-b881-4752c120da11",
+			"name": "Add Faculty",
+			"url": "http://localhost:8080/faculty",
+			"time": 551,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 400 Faculty already exists": false,
+				"Status code is 403 Unautherized": false,
+				"Status code is 201 Created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400 Faculty already exists": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 403 Unautherized": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 201 Created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				551
+			],
+			"allTests": [
+				{
+					"Status code is 400 Faculty already exists": false,
+					"Status code is 403 Unautherized": false,
+					"Status code is 201 Created": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 551,
+	"collection": {
+		"requests": [
+			{
+				"id": "9c0f5793-3d64-4122-b881-4752c120da11",
+				"method": "POST"
+			}
+		]
+	}
+}

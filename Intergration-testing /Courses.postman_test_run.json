@@ -1,0 +1,237 @@
+{
+	"id": "fa335a40-f6b4-4384-809b-d403a891f74d",
+	"name": "Timetable Management System",
+	"timestamp": "2024-03-23T17:29:42.547Z",
+	"collection_id": "23490725-196eff49-3f59-41a5-9089-4a64fe602210",
+	"folder_id": "23490725-14b56a45-0349-46a8-a246-2275e24807cc",
+	"environment_id": "0",
+	"totalPass": 5,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-03-23T17:29:40.068Z",
+	"totalFail": 10,
+	"results": [
+		{
+			"id": "811b1447-6f4c-4be6-8492-7e5f74831044",
+			"name": "get Course By ID",
+			"url": "http://localhost:8080/course/65f880b3b7dcf0f6e17bc39c",
+			"time": 271,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 404 no course found": false,
+				"Status code is 403 Unautherized": false,
+				"Status code is 200 Course Found": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404 no course found": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 403 Unautherized": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 200 Course Found": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				271
+			],
+			"allTests": [
+				{
+					"Status code is 404 no course found": false,
+					"Status code is 403 Unautherized": false,
+					"Status code is 200 Course Found": true
+				}
+			]
+		},
+		{
+			"id": "622e1ebd-ef65-4b9f-9d65-af61d6b386ce",
+			"name": "Create course",
+			"url": "http://localhost:8080/course",
+			"time": 565,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 400 no course already exists": false,
+				"Status code is 403 Unautherized": false,
+				"Status code is 201 Created": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400 no course already exists": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 403 Unautherized": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 201 Created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				565
+			],
+			"allTests": [
+				{
+					"Status code is 400 no course already exists": false,
+					"Status code is 403 Unautherized": false,
+					"Status code is 201 Created": true
+				}
+			]
+		},
+		{
+			"id": "beef8025-2ec2-4238-8909-326a82dabdb3",
+			"name": "Get All courses",
+			"url": "http://localhost:8080/course",
+			"time": 268,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 500 - Something went wrong": false,
+				"Status code is 403 Unautherized": false,
+				"Status code is 200 All courses fetched": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500 - Something went wrong": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 403 Unautherized": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 200 All courses fetched": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				268
+			],
+			"allTests": [
+				{
+					"Status code is 500 - Something went wrong": false,
+					"Status code is 403 Unautherized": false,
+					"Status code is 200 All courses fetched": true
+				}
+			]
+		},
+		{
+			"id": "eafc638a-0f6a-443a-ac53-0bd969cb6301",
+			"name": "Update course ",
+			"url": "http://localhost:8080/course/65ff08ee46e958bfded5dac1",
+			"time": 531,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400 no course found": false,
+				"Status code is 403 Unautherized": false,
+				"Status code is 200 Updated": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400 no course found": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 403 Unautherized": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 200 Updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				531
+			],
+			"allTests": [
+				{
+					"Status code is 400 no course found": false,
+					"Status code is 403 Unautherized": false,
+					"Status code is 200 Updated": true
+				}
+			]
+		},
+		{
+			"id": "ad251d43-1849-4bd7-ab67-7557ce4321ed",
+			"name": "Delete Course",
+			"url": "http://localhost:8080/course/65ff11095a58897c64f47914",
+			"time": 530,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 404 no course found": false,
+				"Status code is 403 Unautherized": false,
+				"Status code is 200 course Deleted successfully": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404 no course found": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 403 Unautherized": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 200 course Deleted successfully": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				530
+			],
+			"allTests": [
+				{
+					"Status code is 404 no course found": false,
+					"Status code is 403 Unautherized": false,
+					"Status code is 200 course Deleted successfully": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2165,
+	"collection": {
+		"requests": [
+			{
+				"id": "811b1447-6f4c-4be6-8492-7e5f74831044",
+				"method": "GET"
+			},
+			{
+				"id": "622e1ebd-ef65-4b9f-9d65-af61d6b386ce",
+				"method": "POST"
+			},
+			{
+				"id": "beef8025-2ec2-4238-8909-326a82dabdb3",
+				"method": "GET"
+			},
+			{
+				"id": "eafc638a-0f6a-443a-ac53-0bd969cb6301",
+				"method": "PUT"
+			},
+			{
+				"id": "ad251d43-1849-4bd7-ab67-7557ce4321ed",
+				"method": "DELETE"
+			}
+		]
+	}
+}

@@ -1,0 +1,173 @@
+{
+	"id": "a965647d-0956-4341-a1a9-f7892f1b4c52",
+	"name": "Timetable Management System",
+	"timestamp": "2024-03-23T17:43:03.764Z",
+	"collection_id": "23490725-196eff49-3f59-41a5-9089-4a64fe602210",
+	"folder_id": "23490725-9ddf3084-2194-45bb-b63c-5bab98d15b84",
+	"environment_id": "0",
+	"totalPass": 4,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-03-23T17:43:00.299Z",
+	"totalFail": 5,
+	"results": [
+		{
+			"id": "ef35f5a1-552f-43e6-885c-b2123bd9ecb3",
+			"name": "enroll student",
+			"url": "http://localhost:8080/enroll",
+			"time": 552,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 400 no course already exists": false,
+				"Status code is 400 Already enrolled": false,
+				"Status code is 201 Created student and the enrolledcourses": true,
+				"Status code is 200 enrolled to new course": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400 no course already exists": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 400 Already enrolled": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 201 Created student and the enrolledcourses": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 enrolled to new course": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				552
+			],
+			"allTests": [
+				{
+					"Status code is 400 no course already exists": false,
+					"Status code is 400 Already enrolled": false,
+					"Status code is 201 Created student and the enrolledcourses": true,
+					"Status code is 200 enrolled to new course": false
+				}
+			]
+		},
+		{
+			"id": "4d068e30-6d70-4e4a-be09-d6fcc0e6f7c9",
+			"name": "Get Enrolled Courses timetable",
+			"url": "http://localhost:8080/enroll/timetable",
+			"time": 799,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404 no no sessions found": true,
+				"Status code is 500 something went wrong": false,
+				"Status code is 200 timetable": false
+			},
+			"testPassFailCounts": {
+				"Status code is 404 no no sessions found": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 500 something went wrong": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code is 200 timetable": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				799
+			],
+			"allTests": [
+				{
+					"Status code is 404 no no sessions found": true,
+					"Status code is 500 something went wrong": false,
+					"Status code is 200 timetable": false
+				}
+			]
+		},
+		{
+			"id": "757cbf19-d9bd-4036-8b4e-93a4a5e0ca31",
+			"name": "Filter enrollments for each student",
+			"url": "http://localhost:8080/enroll",
+			"time": 520,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				520
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c0b96c77-3923-4ec6-a618-fa9aae951863",
+			"name": "Get timetableBy course",
+			"url": "http://localhost:8080/timetable/65f8809cb7dcf0f6e17bc397",
+			"time": 1321,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response content type is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response content type is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1321
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response content type is application/json": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3192,
+	"collection": {
+		"requests": [
+			{
+				"id": "ef35f5a1-552f-43e6-885c-b2123bd9ecb3",
+				"method": "POST"
+			},
+			{
+				"id": "4d068e30-6d70-4e4a-be09-d6fcc0e6f7c9",
+				"method": "GET"
+			},
+			{
+				"id": "757cbf19-d9bd-4036-8b4e-93a4a5e0ca31",
+				"method": "GET"
+			},
+			{
+				"id": "c0b96c77-3923-4ec6-a618-fa9aae951863",
+				"method": "GET"
+			}
+		]
+	}
+}
